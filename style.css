@@ -255,11 +255,40 @@ p {
 .logo {
     height: 2.5rem;
     width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar {
+    margin-left: 1.5rem;
+    box-sizing: content-box;
+    padding-left: 1.5rem;
+    border-left: 2px dotted var(--mcol);
+    display: flex;
+    gap: 0.5rem;
+    height: 75%;
+    align-items: center;
+}
+
+.navbar > .i {
+    background: var(--mcol);
+    color: var(--bcol);
+    padding: 0rem 0.3rem 0rem 0.3rem;
+    box-sizing: content-box;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    height: max-content;
+}
+
+.navbar > .i:hover {
+    background: var(--tcol);
 }
 
 .logo > img {
     height: 100%;
-    opacity: 0.92;
+    opacity: 0.85;
 }
 
 ::selection {
@@ -281,9 +310,30 @@ p {
 img {
     image-rendering: pixelated; /* for older browsers */
     image-rendering: -webkit-optimize-contrast; /* for webkit-based browsers */
-    image-rendering: crisp-edges; /* modern browsers */
+    image-rendering: optimizeQuality;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
 }
 
 a {
     color: inherit;
+}
+
+.unauthorized::before {
+    color: var(--mcol);
+    content: "[UNAUTHORIZED]";
+    font-style: italic;
+}
+
+.log {
+    margin-left: 1.5rem;
+    box-sizing: content-box;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--mcol);
+    height: 75%;
+    display: flex;
+    align-items: center;
+    border-left: 2px dotted var(--mcol);
 }
