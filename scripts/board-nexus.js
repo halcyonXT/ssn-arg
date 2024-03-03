@@ -1,7 +1,7 @@
 
 let selectedThreadType = "public";
 
-let URL_BASE = "";
+let URL_BASE = "/";
 URL_BASE = "/ssn-arg/"
 
 String.prototype.toTitleCase = function() {
@@ -34,11 +34,11 @@ const listThreads = (type, boardName) => {
     HTML += `<button class="board-list-i" onclick="listBoards('${type}')">${presentableName} (${THREAD_TABLE[type][boardName].threads.active.length} active, ${THREAD_TABLE[type][boardName].threads.archived.length} archived)</button>`
 
     for (let threadName of THREAD_TABLE[type][boardName].threads.active) {
-        HTML += `<button class="board-list-i"><a href="${URL_BASE}/pages/${threadName.name.toLowerCase()}.html">${threadName.title} - ${threadName.name} <small>(AUTHOR: ${threadName.init})</small></a></button>`;
+        HTML += `<button class="board-list-i"><a href="${URL_BASE}pages/${threadName.name.toLowerCase()}.html">${threadName.title} - ${threadName.name} <small>(AUTHOR: ${threadName.init})</small></a></button>`;
     }
 
     for (let threadName of THREAD_TABLE[type][boardName].threads.archived) {
-        HTML += `<button class="board-list-i"><a href="${URL_BASE}/pages/${threadName.name.toLowerCase()}.html">${threadName.title} - ${threadName.name} <small>(AUTHOR: ${threadName.init})</small></a><div class="arch">ARCHIVED</div></button>`;
+        HTML += `<button class="board-list-i"><a href="${URL_BASE}pages/${threadName.name.toLowerCase()}.html">${threadName.title} - ${threadName.name} <small>(AUTHOR: ${threadName.init})</small></a><div class="arch">ARCHIVED</div></button>`;
     }
 
     document.querySelector('.board-list').innerHTML = HTML;
