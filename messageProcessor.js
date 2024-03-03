@@ -52,8 +52,40 @@ function processMessages() {
         },
     }
 
+    const workstationMessage = (element, name) => {
+        element.classList.add("t");
+
+        let FROM, pattern = name.slice(0, 2);
+
+        for (let key of Object.keys(STATION_TABLE)) {
+            if (key.startsWith(pattern)) {
+                FROM = key;
+                break;
+            }
+        }
+
+        let username = document.createElement("p");
+        username.classList.add("username");
+        username.textContent = `${STATION_TABLE[FROM].insignia} ${name}`
+
+
+        let metadata = document.createElement("div");
+        metadata.classList.add("metadata");
+        const date = element.getAttribute("data-date").toUpperCase(), time = STATION_TABLE[FROM].timezone;
+        metadata.innerHTML = `<p>${date}</p><p>${time}</p>`
+
+        element.insertBefore(metadata, element.firstChild);
+        element.insertBefore(username, element.firstChild);
+    }
+
     for (let element of messageElements) {
         const FROM = element.getAttribute("data-from").toUpperCase();
+
+        if (!(FROM in STATION_TABLE)) {
+            workstationMessage(element, FROM);
+            continue;
+        }
+
         element.classList.add("t");
 
         let username = document.createElement("p");

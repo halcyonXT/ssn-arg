@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>SSN</title>
+</head>
+<body>
+    <div id="in">
+        <div class="logo">
+            <img src="../assets/ssn light.png" draggable="false">
+            <div class="log">
+                User: AP-WORKSTATION-B2<br/>Clearance: 3
+            </div>
+        </div>
+        <div class="cind">
+            <button class="board-i" data-cl="public" onclick="listBoards('public')"><p>Public</p></button>
+            <button class="board-i" data-cl="protected" onclick="listBoards('protected')"><p>Protected</p></button>
+            <button class="board-i" data-cl="private" onclick="listBoards('private')"><p>Private</p></button>
+        </div>
+        <div class="board-list">
+        </div>
+    <div id="sl"></div>
+    <div id="nbg"></div>
+    <script src="../messageProcessor.js"></script>
+    <script src="../threadInfo.js"></script>
+    <script src="../scripts/board-nexus.js"></script>
+</body>
+</html>

@@ -307,6 +307,28 @@ p {
     color: black;
 }
 
+.board-i {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    font-family: inherit;
+    color: var(--mcol);
+    background: transparent;
+    padding: 0.15rem 0.3rem 0.15rem 0.3rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.board-i:hover {
+    text-decoration: underline;
+    color: var(--tcol);
+}
+
+.board-i.active {
+    text-decoration: underline;
+    color: var(--tcol);
+}
+
 img {
     image-rendering: pixelated; /* for older browsers */
     image-rendering: -webkit-optimize-contrast; /* for webkit-based browsers */
@@ -336,4 +358,49 @@ a {
     display: flex;
     align-items: center;
     border-left: 2px dotted var(--mcol);
+}
+
+.board-list-i {
+    font-size: 1rem;
+    font-family: inherit;
+    outline: 0; margin: 0; border: 0; padding: 0;
+    color: var(--tcol);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.board-list-i:not(:first-of-type) {
+    margin-top: .5rem;
+}
+
+.board-list-i::before {
+    content: ">>";
+    margin-right: .25rem;
+}
+
+.board-list-i:hover::before {
+    margin-right: .5rem;
+}
+
+.board-list-i:hover {
+    text-decoration: underline;
+}
+
+.board-list-i.active::before {
+    content: ""; margin: 0;
+}
+
+.board-list-i:hover.active::before {
+    margin: 0;
+}
+
+.board-list-i > a {
+    text-decoration: none;
+}
+
+.board-list {
+    margin-top: -.5rem;
 }
