@@ -1,8 +1,7 @@
 
 let selectedThreadType = "public";
 
-let URL_BASE = "/";
-URL_BASE = "/ssn-arg/"
+
 
 String.prototype.toTitleCase = function() {
     return this.replace(
@@ -31,7 +30,7 @@ const listBoards = (type = "public") => {
 const listThreads = (type, boardName) => {
     let HTML = "";
     const presentableName = boardName.replaceAll("_", " ").toTitleCase();
-    HTML += `<button class="board-list-i" onclick="listBoards('${type}')">${presentableName} (${THREAD_TABLE[type][boardName].threads.active.length} active, ${THREAD_TABLE[type][boardName].threads.archived.length} archived)</button>`
+    HTML += `<button class="board-list-i active" onclick="listBoards('${type}')">${presentableName} (${THREAD_TABLE[type][boardName].threads.active.length} active, ${THREAD_TABLE[type][boardName].threads.archived.length} archived)</button>`
 
     for (let threadName of THREAD_TABLE[type][boardName].threads.active) {
         HTML += `<button class="board-list-i"><a href="${URL_BASE}pages/${threadName.name.toLowerCase()}.html">${threadName.title} - ${threadName.name} <small>(AUTHOR: ${threadName.init})</small></a></button>`;

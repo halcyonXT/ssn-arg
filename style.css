@@ -364,7 +364,7 @@ a {
     font-size: 1rem;
     font-family: inherit;
     outline: 0; margin: 0; border: 0; padding: 0;
-    color: var(--tcol);
+    color: var(--mcol);
     background: transparent;
     cursor: pointer;
     display: flex;
@@ -390,11 +390,15 @@ a {
 }
 
 .board-list-i.active::before {
-    content: ""; margin: 0;
+    content: "⏴"; margin: 0;
 }
 
 .board-list-i:hover.active::before {
     margin: 0;
+}
+
+.board-list-i.active {
+    color: var(--tcol)
 }
 
 .board-list-i > a {
